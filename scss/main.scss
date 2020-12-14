@@ -1,0 +1,657 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0px;
+  padding: 0px;
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: 800;
+}
+
+h2 {
+  font-family: "Raleway", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+h4 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+h5 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+$grayish_bg: #efefef;
+$grayish_text: #7f7f7f;
+$accentcolor: #ff9b1a;
+
+@mixin spanned-title() {
+  position: relative;
+
+  &::after {
+    content: "";
+    height: 3px;
+    width: 50px;
+    background: $accentcolor;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.8;
+    margin-bottom: 20px;
+  }
+}
+
+.custom-btn-one {
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  border: 1px solid white;
+  background: $accentcolor;
+  margin-left: 20px;
+  border-radius: 50px;
+
+  &:hover {
+    color: $accentcolor;
+    border: 1px solid $accentcolor;
+    background: white;
+  }
+}
+
+.custom-btn-two {
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  border: 1px solid white;
+  background: transparent;
+  margin-left: 20px;
+  border-radius: 50px;
+
+  &:hover {
+    color: white;
+    border: 1px solid $accentcolor;
+    background: $accentcolor;
+  }
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.top-header {
+  color: $grayish_text;
+  font-size: 12px;
+  background: $grayish_bg;
+
+  .nav-link {
+    color: $grayish_text;
+    text-transform: uppercase;
+  }
+}
+
+nav.navbar {
+  padding: 30px 0px;
+
+  .nav-link {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    color: #161616 !important;
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      z-index: -1;
+      height: 100%;
+      width: 100%;
+      background: $accentcolor;
+      position: absolute;
+      bottom: -100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &:hover {
+      color: white !important;
+      &::after {
+        opacity: 1;
+        bottom: 0%;
+        transition: 0.2s;
+      }
+    }
+  }
+}
+
+// homepage banner section starts here
+
+.homepage-banner {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../img/banner.png) center center no-repeat;
+  background-size: cover;
+  padding: 100px 0px;
+  color: white;
+  font-family: "Raleway", sans-serif;
+
+  .inner-text {
+    font-size: 14px;
+    font-weight: 500;
+
+    span {
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+}
+
+// homepage banner section ends here
+
+// homepage cards section starts here
+
+.homepage-cards {
+  padding: 100px 0;
+  font-size: 14px;
+
+  .card {
+    position: relative;
+
+    .card-img {
+      z-index: 1;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      background: url(../img/bitcoin-bg.png) center center no-repeat;
+      background-size: cover;
+      z-index: 0;
+      opacity: 0;
+      transform: scale(0);
+      transition: 0.3s;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(to top, #fe7711, #ddb11262);
+      background-size: cover;
+      z-index: 0;
+      opacity: 0;
+      transform: scale(0);
+      transition: 0.3s;
+    }
+
+    &:hover {
+      color: white;
+
+      &::before {
+        opacity: 1;
+        bottom: 0;
+        transform: scale(1);
+      }
+
+      &::after {
+        opacity: 1;
+        bottom: 0;
+        transform: scale(1);
+      }
+
+      img {
+        filter: brightness(10);
+      }
+    }
+
+    .card-text {
+      z-index: 1;
+    }
+  }
+}
+
+// homepage cards section ends here
+
+// services section starts here
+
+@mixin button($fontsize, $fontweight, $color, $bgcolor, $hovercolor, $hoverbg) {
+  font-size: $fontsize;
+  font-weight: $fontweight;
+  color: $color;
+  background-color: $bgcolor;
+  border: 1px solid $color;
+  border-radius: 50px;
+
+  &:hover {
+    color: $hovercolor;
+    background-color: $hoverbg;
+    border: 1px solid $hovercolor;
+  }
+}
+
+.services-section {
+  margin-bottom: 30px;
+  .title {
+    @include spanned-title;
+  }
+
+  .btn {
+    @include button(14px, 600, $grayish_text, transparent, white, $accentcolor);
+    padding: 10px 25px;
+    font-family: "Raleway", sans-serif;
+  }
+
+  .card {
+    p {
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+}
+
+// services section ends here
+
+// steps-section starts here
+
+.steps-section {
+  padding: 80px 0px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../img/steps-bg.png) center center no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
+  overflow: hidden;
+  color: white;
+  position: relative;
+
+  .iphone-side {
+    position: relative;
+    .fixed-one {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%);
+    }
+    .fixed-two {
+      position: absolute;
+      z-index: 2;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, 60%);
+    }
+  }
+
+  .col-md-2 {
+    position: relative;
+
+    &:first-child {
+      transform: rotate(45deg);
+    }
+
+    .box-side {
+      position: absolute;
+      content: "";
+      height: 50px;
+      width: 50px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 1px solid $accentcolor;
+      border-radius: 5px;
+    }
+  }
+}
+
+// steps-section ends here
+
+// features-section starts here
+
+.features-section {
+  padding: 100px 0px;
+
+  .text-center {
+    position: relative;
+    height: 350px;
+  }
+
+  .feature {
+    position: absolute;
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  .top {
+    top: 0%;
+  }
+
+  .right {
+    right: 0%;
+  }
+
+  .bottom {
+    bottom: 0%;
+  }
+
+  .middle {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .left {
+    left: 0%;
+  }
+
+  .red {
+    height: 50px;
+    width: 50px;
+    border: 2px solid #f05154;
+    transform: rotate(45deg);
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .green {
+    height: 50px;
+    width: 50px;
+    border: 2px solid #67ce6c;
+    transform: rotate(45deg);
+    border-radius: 5px;
+  }
+
+  .blue {
+    height: 50px;
+    width: 50px;
+    border: 2px solid #43c5ca;
+    transform: rotate(45deg);
+    border-radius: 5px;
+  }
+
+  .c-red {
+    color: #f05154;
+  }
+
+  .c-green {
+    color: green;
+  }
+
+  .c-blue {
+    color: #43c5ca;
+  }
+
+  .content {
+    position: relative;
+  }
+
+  .fa {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+// features-section ends here
+
+// experts-section starts here
+
+.experts-section {
+  padding: 0 0 50px;
+  .title {
+    @include spanned-title;
+  }
+
+  span {
+    font-size: 16px;
+    color: $accentcolor;
+    font-weight: 600;
+  }
+}
+
+h6 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+// experts-section ends here
+
+// free consultation section starts here
+
+.free-consultation-section {
+  padding: 100px 0;
+  background: url(../img/consultation-bg.png) center center no-repeat;
+  background-size: cover;
+  color: white;
+  input,
+  textarea {
+    border: 1px solid white;
+    background: transparent;
+    border-radius: 2px;
+    color: white;
+
+    &::placeholder {
+      color: white;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  .btn {
+    padding: 10px 60px;
+  }
+}
+
+// free consultation section ends here
+
+// our-blogs-section consultation section starts here
+
+.our-blogs-section {
+  padding: 100px 0;
+
+  .title {
+    @include spanned-title();
+  }
+
+  .card {
+    border-radius: 10px;
+  }
+
+  .card-text {
+    padding: 15px;
+  }
+
+  .fa {
+    padding: 20px;
+    border-radius: 40px;
+    background: #f26c4f;
+    color: white;
+    position: absolute;
+    bottom: 50%;
+  }
+
+  ul {
+    font-size: 12px;
+  }
+
+  h4 {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 25px;
+  }
+
+  p {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+}
+
+// our-blogs-section consultation section ends here
+
+// feedback-section consultation section starts here
+
+.feedback-section {
+  padding: 50px 0;
+  .title {
+    @include spanned-title();
+    padding-bottom: 20px;
+  }
+
+  .carousel {
+    min-height: 300px;
+    padding: 20px 0;
+    display: flex;
+    align-items: center !important;
+  }
+
+  .carousel-item {
+    position: relative;
+  }
+
+  .caption {
+    position: relative;
+
+    h5 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: $accentcolor;
+    }
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    filter: invert(1);
+  }
+}
+
+// feedback-section consultation section ends here
+
+// footer section starts here
+
+footer {
+  background: #101010;
+  color: $grayish_text;
+  padding: 100px 0;
+  position: relative;
+  font-size: 13px;
+
+  &::before {
+    position: absolute;
+    content: "";
+    height: 3px;
+    width: 100%;
+    background: $accentcolor;
+    top: 0;
+  }
+
+  h3 {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 20px;
+    &::after {
+      content: "";
+      height: 3px;
+      width: 50px;
+      background: $accentcolor;
+      position: absolute;
+      bottom: 0;
+      left: 0%;
+    }
+  }
+
+  .title {
+    &:first-child {
+      margin-bottom: 30px;
+    }
+  }
+
+  .nav-link {
+    color: $grayish_text;
+    &:hover {
+      color: $accentcolor;
+    }
+  }
+
+  .fab {
+    font-size: 18px;
+  }
+
+  .form-control {
+    border-color: white;
+    background-clip: border-box;
+    &::placeholder {
+      font-size: 12px;
+    }
+
+    .btn {
+      padding: 10px !important;
+    }
+
+    &:focus {
+      border-color: white;
+      outline: 0px;
+      box-shadow: none;
+    }
+  }
+
+  .btn {
+    color: white;
+    background: $accentcolor;
+    border: 1px solid $accentcolor;
+    transition: 0.6s ease;
+    &:hover {
+      color: white;
+      .fa {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+// footer section ends here
+
+.bottom-credits-section {
+  background: #000;
+  color: $grayish_text;
+  font-size: 12px;
+  .nav-link {
+    font-size: 12px;
+    color: $grayish_text;
+  }
+}

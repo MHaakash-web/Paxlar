@@ -900,9 +900,9 @@ footer .btn:hover .fa {
 
 @media (min-width: 768px) {
   .bottom-credits-section .nav {
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: end;
+    -webkit-box-pack: flex-end;
+        -ms-flex-pack: flex-end;
+            justify-content: flex-end;
   }
 }
 

@@ -17,6 +17,11 @@ h6 {
 h1 {
   font-size: 50px;
   font-weight: 800;
+
+  @media (max-width: 767px) {
+    font-size: 36px;
+    font-weight: 800;
+  }
 }
 
 h2 {
@@ -29,6 +34,11 @@ h3 {
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 10px;
+
+  @media (max-width: 767px) {
+    font-size: 20px;
+    font-weight: 800;
+  }
 }
 
 h4 {
@@ -39,6 +49,16 @@ h4 {
 h5 {
   font-size: 18px;
   font-weight: 700;
+}
+
+p {
+  font-size: 14px;
+  font-weight: 400;
+
+  @media (max-width: 767px) {
+    font-size: 12px;
+    font-weight: 400;
+  }
 }
 
 $grayish_bg: #efefef;
@@ -64,6 +84,11 @@ $accentcolor: #ff9b1a;
     font-weight: 500;
     opacity: 0.8;
     margin-bottom: 20px;
+
+    @media (max-width: 767px) {
+      font-size: 12px;
+      font-weight: 400;
+    }
   }
 }
 
@@ -73,10 +98,11 @@ $accentcolor: #ff9b1a;
   color: white;
   border: 1px solid white;
   background: $accentcolor;
-  margin-left: 20px;
+
   border-radius: 50px;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: $accentcolor;
     border: 1px solid $accentcolor;
     background: white;
@@ -89,10 +115,11 @@ $accentcolor: #ff9b1a;
   color: white;
   border: 1px solid white;
   background: transparent;
-  margin-left: 20px;
+
   border-radius: 50px;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: white;
     border: 1px solid $accentcolor;
     background: $accentcolor;
@@ -111,6 +138,10 @@ body {
   .nav-link {
     color: $grayish_text;
     text-transform: uppercase;
+  }
+
+  .nav {
+    justify-content: space-between;
   }
 }
 
@@ -147,6 +178,9 @@ nav.navbar {
       }
     }
   }
+  .nav-item:last-child {
+    margin-left: 10px;
+  }
 }
 
 // homepage banner section starts here
@@ -168,6 +202,19 @@ nav.navbar {
       font-weight: 600;
     }
   }
+
+  @media (max-width: 767px) {
+    .row:last-child {
+      .col {
+        width: 60%;
+      }
+    }
+    .custom-btn-one {
+      background: white;
+      border: 1px solid white;
+      color: $accentcolor;
+    }
+  }
 }
 
 // homepage banner section ends here
@@ -177,6 +224,11 @@ nav.navbar {
 .homepage-cards {
   padding: 100px 0;
   font-size: 14px;
+
+  @media (max-width: 767px) {
+    padding: 50px 0;
+    font-size: 12px;
+  }
 
   .card {
     position: relative;
@@ -271,13 +323,6 @@ nav.navbar {
     padding: 10px 25px;
     font-family: "Raleway", sans-serif;
   }
-
-  .card {
-    p {
-      font-size: 14px;
-      font-weight: 400;
-    }
-  }
 }
 
 // services section ends here
@@ -285,21 +330,30 @@ nav.navbar {
 // steps-section starts here
 
 .steps-section {
-  padding: 80px 0px;
+  padding: 80px 10px;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(../img/steps-bg.png) center center no-repeat;
   background-size: cover;
-  background-blend-mode: darken;
   overflow: hidden;
   color: white;
   position: relative;
+  display: block;
 
   .iphone-side {
     position: relative;
+
+    @media (max-width: 991px) {
+      display: none;
+    }
+
     .fixed-one {
       position: absolute;
       left: 50%;
       transform: translate(-50%);
+
+      @media (max-width: 767px) {
+        width: 100%;
+      }
     }
     .fixed-two {
       position: absolute;
@@ -310,7 +364,15 @@ nav.navbar {
     }
   }
 
-  .col-md-2 {
+  .texts {
+    position: relative;
+    display: block;
+    @media (max-width: 767px) {
+      width: 100%;
+    }
+  }
+
+  .col-2 {
     position: relative;
 
     &:first-child {
@@ -340,7 +402,8 @@ nav.navbar {
 
   .text-center {
     position: relative;
-    height: 350px;
+    min-height: 250px;
+    max-height: 350px;
   }
 
   .feature {
@@ -348,6 +411,11 @@ nav.navbar {
     text-align: center;
     font-weight: 500;
     font-size: 16px;
+
+    @media (max-width: 540px) {
+      font-weight: 500;
+      font-size: 10px;
+    }
   }
 
   .top {
@@ -378,6 +446,10 @@ nav.navbar {
     transform: rotate(45deg);
     border-radius: 5px;
     text-align: center;
+    @media (max-width: 540px) {
+      height: 30px;
+      width: 30px;
+    }
   }
 
   .green {
@@ -386,6 +458,10 @@ nav.navbar {
     border: 2px solid #67ce6c;
     transform: rotate(45deg);
     border-radius: 5px;
+    @media (max-width: 540px) {
+      height: 30px;
+      width: 30px;
+    }
   }
 
   .blue {
@@ -394,6 +470,10 @@ nav.navbar {
     border: 2px solid #43c5ca;
     transform: rotate(45deg);
     border-radius: 5px;
+    @media (max-width: 540px) {
+      height: 30px;
+      width: 30px;
+    }
   }
 
   .c-red {
@@ -430,16 +510,31 @@ nav.navbar {
     @include spanned-title;
   }
 
+  img {
+    max-width: 80%;
+  }
+
   span {
-    font-size: 16px;
+    font-size: 14px;
     color: $accentcolor;
     font-weight: 600;
+
+    @media (max-width: 540px) {
+      font-size: 12px;
+    }
   }
 }
 
 h6 {
   font-size: 20px;
   font-weight: 700;
+
+  margin-bottom: 10px;
+
+  @media (max-width: 540px) {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
 }
 
 // experts-section ends here
@@ -457,6 +552,7 @@ h6 {
     background: transparent;
     border-radius: 2px;
     color: white;
+    margin-bottom: 10px;
 
     &::placeholder {
       color: white;
@@ -522,6 +618,11 @@ h6 {
 
 .feedback-section {
   padding: 50px 0;
+
+  @media (max-width: 767px) {
+    padding: 0px;
+  }
+
   .title {
     @include spanned-title();
     padding-bottom: 20px;
@@ -568,6 +669,10 @@ footer {
   padding: 100px 0;
   position: relative;
   font-size: 13px;
+
+  @media (max-width: 767px) {
+    padding: 50px 0 0;
+  }
 
   &::before {
     position: absolute;
@@ -647,11 +752,33 @@ footer {
 // footer section ends here
 
 .bottom-credits-section {
+  padding: 20px 0;
   background: #000;
   color: $grayish_text;
   font-size: 12px;
+
   .nav-link {
     font-size: 12px;
     color: $grayish_text;
+  }
+
+  @media (max-width: 767px) {
+    .nav {
+      justify-content: center;
+    }
+
+    .nav-link {
+      font-size: 10px;
+      padding: 5px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .nav {
+      justify-content: end;
+    }
+  }
+  .nav-link {
+    padding: 5px;
   }
 }

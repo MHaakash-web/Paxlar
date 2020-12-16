@@ -257,6 +257,7 @@ nav.navbar {
 
   .card {
     position: relative;
+    overflow: hidden;
 
     .card-img {
       z-index: 1;
@@ -275,6 +276,7 @@ nav.navbar {
       opacity: 0;
       transform: scale(0);
       transition: 0.3s;
+      border-radius: 0.25rem;
     }
 
     &::after {
@@ -425,72 +427,102 @@ nav.navbar {
 .features-section {
   padding: 100px 0px;
 
-  .feature {
-    position: absolute;
-    text-align: center;
-    font-weight: 500;
-    font-size: 16px;
-    transform: rotate(45deg);
-
-    @media (max-width: 540px) {
-      font-weight: 500;
-      font-size: 10px;
-    }
+  @media (max-width: 575px) {
+    display: none;
   }
 
-  span {
-    height: 50px;
-    width: 50px;
-    transform: translate(-50%, -50%);
-    border: 2px solid;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    display: flex;
-    border-radius: 5px;
-
-    @media (max-width: 500px) {
-      height: 30px;
-      width: 30px;
-    }
-  }
-
-  .top {
-    top: 0%;
-  }
-
-  .right {
-    right: 0%;
-  }
-
-  .bottom {
-    bottom: 0%;
-  }
-
-  .middle {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .left {
-    left: 0%;
-  }
-  .c-red {
-    color: #f05154;
-  }
-
-  .c-green {
-    color: green;
-  }
-
-  .c-blue {
-    color: #43c5ca;
-  }
-
-  .fa {
+  .interior {
+    width: 60%;
     margin: auto;
-    transform: rotate(-45deg);
+    position: relative;
+    font-size: 14px;
+
+    @media (max-width: 992px) {
+      width: 100%;
+    }
+    img {
+      width: 50%;
+      margin: auto;
+      display: flex;
+    }
+
+    @keyframes MHAnimation {
+      0% {
+        transform: scale(0);
+      }
+      50% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(0);
+      }
+    }
+
+    img {
+      animation: MHAnimation 3s infinite 0s ease;
+    }
+
+    .feature {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      object-fit: fill;
+      .box {
+        height: 40px;
+        width: 40px;
+        border: 2px solid;
+        transform: rotate(45deg);
+        margin-bottom: 10px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .fa {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+
+    .right {
+      right: 5%;
+    }
+
+    .left {
+      left: 5%;
+    }
+
+    .top {
+      top: -20%;
+    }
+
+    .middle {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .middle-right {
+      top: 50%;
+      right: 0%;
+      transform: translateY(-50%);
+    }
+
+    .bottom {
+      bottom: -20%;
+    }
+
+    .c-red {
+      color: #f05154;
+    }
+
+    .c-green {
+      color: green;
+    }
+
+    .c-blue {
+      color: #43c5ca;
+    }
   }
 }
 
@@ -555,7 +587,7 @@ nav.navbar {
 // our-blogs-section consultation section starts here
 
 .our-blogs-section {
-  padding: 100px 0;
+  padding: 100px 0px 0px;
 
   .title {
     @include spanned-title();
@@ -576,6 +608,10 @@ nav.navbar {
     color: white;
     position: absolute;
     bottom: 50%;
+
+    @media (max-width: 320px) {
+      padding: 15px;
+    }
   }
 
   ul {

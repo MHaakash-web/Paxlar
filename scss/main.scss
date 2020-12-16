@@ -51,6 +51,18 @@ h5 {
   font-weight: 700;
 }
 
+h6 {
+  font-size: 20px;
+  font-weight: 700;
+
+  margin-bottom: 10px;
+
+  @media (max-width: 540px) {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+}
+
 p {
   font-size: 14px;
   font-weight: 400;
@@ -204,15 +216,17 @@ nav.navbar {
   }
 
   @media (max-width: 767px) {
-    .row:last-child {
-      .col {
-        width: 60%;
-      }
-    }
     .custom-btn-one {
       background: white;
       border: 1px solid white;
       color: $accentcolor;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .custom-btn-one {
+      padding-left: 40px !important;
+      padding-right: 40px !important;
     }
   }
 }
@@ -228,6 +242,17 @@ nav.navbar {
   @media (max-width: 767px) {
     padding: 50px 0;
     font-size: 12px;
+  }
+
+  .col-6 {
+    @media (max-width: 480px) {
+      width: 80%;
+      margin: auto;
+    }
+
+    @media (max-width: 320px) {
+      width: 100%;
+    }
   }
 
   .card {
@@ -372,7 +397,7 @@ nav.navbar {
     }
   }
 
-  .col-2 {
+  .inner-text {
     position: relative;
 
     &:first-child {
@@ -400,21 +425,33 @@ nav.navbar {
 .features-section {
   padding: 100px 0px;
 
-  .text-center {
-    position: relative;
-    min-height: 250px;
-    max-height: 350px;
-  }
-
   .feature {
     position: absolute;
     text-align: center;
     font-weight: 500;
     font-size: 16px;
+    transform: rotate(45deg);
 
     @media (max-width: 540px) {
       font-weight: 500;
       font-size: 10px;
+    }
+  }
+
+  span {
+    height: 50px;
+    width: 50px;
+    transform: translate(-50%, -50%);
+    border: 2px solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    border-radius: 5px;
+
+    @media (max-width: 500px) {
+      height: 30px;
+      width: 30px;
     }
   }
 
@@ -432,50 +469,13 @@ nav.navbar {
 
   .middle {
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .left {
     left: 0%;
   }
-
-  .red {
-    height: 50px;
-    width: 50px;
-    border: 2px solid #f05154;
-    transform: rotate(45deg);
-    border-radius: 5px;
-    text-align: center;
-    @media (max-width: 540px) {
-      height: 30px;
-      width: 30px;
-    }
-  }
-
-  .green {
-    height: 50px;
-    width: 50px;
-    border: 2px solid #67ce6c;
-    transform: rotate(45deg);
-    border-radius: 5px;
-    @media (max-width: 540px) {
-      height: 30px;
-      width: 30px;
-    }
-  }
-
-  .blue {
-    height: 50px;
-    width: 50px;
-    border: 2px solid #43c5ca;
-    transform: rotate(45deg);
-    border-radius: 5px;
-    @media (max-width: 540px) {
-      height: 30px;
-      width: 30px;
-    }
-  }
-
   .c-red {
     color: #f05154;
   }
@@ -488,15 +488,9 @@ nav.navbar {
     color: #43c5ca;
   }
 
-  .content {
-    position: relative;
-  }
-
   .fa {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: auto;
+    transform: rotate(-45deg);
   }
 }
 
@@ -520,20 +514,8 @@ nav.navbar {
     font-weight: 600;
 
     @media (max-width: 540px) {
-      font-size: 12px;
+      font-size: 10px;
     }
-  }
-}
-
-h6 {
-  font-size: 20px;
-  font-weight: 700;
-
-  margin-bottom: 10px;
-
-  @media (max-width: 540px) {
-    font-size: 16px;
-    margin-bottom: 0;
   }
 }
 
@@ -775,7 +757,7 @@ footer {
 
   @media (min-width: 768px) {
     .nav {
-      justify-content: end;
+      justify-content: flex-end;
     }
   }
   .nav-link {

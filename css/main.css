@@ -55,6 +55,19 @@ h5 {
   font-weight: 700;
 }
 
+h6 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 540px) {
+  h6 {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+}
+
 p {
   font-size: 14px;
   font-weight: 400;
@@ -180,13 +193,17 @@ nav.navbar .nav-item:last-child {
 }
 
 @media (max-width: 767px) {
-  .homepage-banner .row:last-child .col {
-    width: 60%;
-  }
   .homepage-banner .custom-btn-one {
     background: white;
     border: 1px solid white;
     color: #ff9b1a;
+  }
+}
+
+@media (max-width: 360px) {
+  .homepage-banner .custom-btn-one {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
   }
 }
 
@@ -199,6 +216,19 @@ nav.navbar .nav-item:last-child {
   .homepage-cards {
     padding: 50px 0;
     font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .homepage-cards .col-6 {
+    width: 80%;
+    margin: auto;
+  }
+}
+
+@media (max-width: 320px) {
+  .homepage-cards .col-6 {
+    width: 100%;
   }
 }
 
@@ -377,16 +407,16 @@ nav.navbar .nav-item:last-child {
   }
 }
 
-.steps-section .col-2 {
+.steps-section .inner-text {
   position: relative;
 }
 
-.steps-section .col-2:first-child {
+.steps-section .inner-text:first-child {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
 
-.steps-section .col-2 .box-side {
+.steps-section .inner-text .box-side {
   position: absolute;
   content: "";
   height: 50px;
@@ -403,23 +433,41 @@ nav.navbar .nav-item:last-child {
   padding: 100px 0px;
 }
 
-.features-section .text-center {
-  position: relative;
-  min-height: 250px;
-  max-height: 350px;
-}
-
 .features-section .feature {
   position: absolute;
   text-align: center;
   font-weight: 500;
   font-size: 16px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 @media (max-width: 540px) {
   .features-section .feature {
     font-weight: 500;
     font-size: 10px;
+  }
+}
+
+.features-section span {
+  height: 50px;
+  width: 50px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border: 2px solid;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 5px;
+}
+
+@media (max-width: 500px) {
+  .features-section span {
+    height: 30px;
+    width: 30px;
   }
 }
 
@@ -437,61 +485,13 @@ nav.navbar .nav-item:last-child {
 
 .features-section .middle {
   top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .features-section .left {
   left: 0%;
-}
-
-.features-section .red {
-  height: 50px;
-  width: 50px;
-  border: 2px solid #f05154;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-  border-radius: 5px;
-  text-align: center;
-}
-
-@media (max-width: 540px) {
-  .features-section .red {
-    height: 30px;
-    width: 30px;
-  }
-}
-
-.features-section .green {
-  height: 50px;
-  width: 50px;
-  border: 2px solid #67ce6c;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-  border-radius: 5px;
-}
-
-@media (max-width: 540px) {
-  .features-section .green {
-    height: 30px;
-    width: 30px;
-  }
-}
-
-.features-section .blue {
-  height: 50px;
-  width: 50px;
-  border: 2px solid #43c5ca;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-  border-radius: 5px;
-}
-
-@media (max-width: 540px) {
-  .features-section .blue {
-    height: 30px;
-    width: 30px;
-  }
 }
 
 .features-section .c-red {
@@ -506,16 +506,10 @@ nav.navbar .nav-item:last-child {
   color: #43c5ca;
 }
 
-.features-section .content {
-  position: relative;
-}
-
 .features-section .fa {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  margin: auto;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 
 .experts-section {
@@ -564,20 +558,7 @@ nav.navbar .nav-item:last-child {
 
 @media (max-width: 540px) {
   .experts-section span {
-    font-size: 12px;
-  }
-}
-
-h6 {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-@media (max-width: 540px) {
-  h6 {
-    font-size: 16px;
-    margin-bottom: 0;
+    font-size: 10px;
   }
 }
 
@@ -900,8 +881,8 @@ footer .btn:hover .fa {
 
 @media (min-width: 768px) {
   .bottom-credits-section .nav {
-    -webkit-box-pack: flex-end;
-        -ms-flex-pack: flex-end;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
             justify-content: flex-end;
   }
 }

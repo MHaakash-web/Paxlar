@@ -544,7 +544,8 @@ nav.navbar .nav-item:last-child {
           align-items: center;
 }
 
-.features-section .interior .feature .box .fa {
+.features-section .interior .feature .box .fa,
+.features-section .interior .feature .box .fas {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }

@@ -489,7 +489,8 @@ nav.navbar {
         justify-content: center;
         align-items: center;
 
-        .fa {
+        .fa,
+        .fas {
           transform: rotate(-45deg);
         }
       }

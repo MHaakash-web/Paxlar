@@ -116,7 +116,8 @@ $accentcolor: #ff9b1a;
   &:hover,
   &:focus {
     color: $accentcolor;
-    border: 1px solid $accentcolor;
+    border: 1px solid white;
+    box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.1);
     background: white;
   }
 }
@@ -150,6 +151,11 @@ body {
   .nav-link {
     color: $grayish_text;
     text-transform: uppercase;
+    position: relative;
+
+    &:hover {
+      color: #43c5ca;
+    }
   }
 
   .nav {
@@ -157,8 +163,12 @@ body {
   }
 }
 
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
 nav.navbar {
-  padding: 30px 0px;
+  padding: 10px 0px;
 
   .nav-link {
     text-align: center;

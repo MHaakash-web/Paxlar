@@ -91,7 +91,9 @@ p {
 
 .custom-btn-one:hover, .custom-btn-one:focus {
   color: #ff9b1a;
-  border: 1px solid #ff9b1a;
+  border: 1px solid white;
+  -webkit-box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.1);
   background: white;
 }
 
@@ -123,6 +125,11 @@ body {
 .top-header .nav-link {
   color: #7f7f7f;
   text-transform: uppercase;
+  position: relative;
+}
+
+.top-header .nav-link:hover {
+  color: #43c5ca;
 }
 
 .top-header .nav {
@@ -131,8 +138,13 @@ body {
           justify-content: space-between;
 }
 
+.navbar-toggler:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 nav.navbar {
-  padding: 30px 0px;
+  padding: 10px 0px;
 }
 
 nav.navbar .nav-link {
